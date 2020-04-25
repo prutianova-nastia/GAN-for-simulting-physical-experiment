@@ -29,8 +29,7 @@ def train(X_train):
 
         params.decrease_learning_rate()
 
-        if epoch % 3 == 0 or epoch == 1 or epoch == 2:
-            images = generator.model(tf.random.normal(shape=(16, params.LATENT_DIM)))
-            plot_results(images.numpy(), generator_loss, discriminator_loss)
+    images = generator.model(tf.random.normal(shape=(16, params.LATENT_DIM)))
+    plot_results(images.numpy(), generator_loss, discriminator_loss)
 
     return generator.model, discriminator.model
