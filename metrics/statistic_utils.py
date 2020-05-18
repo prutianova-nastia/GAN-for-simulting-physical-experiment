@@ -34,7 +34,12 @@ def standard_error(X):
     return math.sqrt(unbiased_sample_variance(X)) / math.sqrt(X.shape[0])
 
 
-# rrange = np.array(list(map(lambda x: range(0, 3), range(0, 3))))
-# print(rrange)
-# w = np.array([[10, 20, 0], [30, 40, 1], [10, 10, 10]])
-# print(sample_mean(rrange, w))
+def sample_correlation_coefficient(X, Y):
+    """
+    X - sample x1, x2, .. xn
+    Y - sample y1, y2, .. yn
+    X, Y - np.array
+    https://en.wikipedia.org/wiki/Correlation_and_dependence
+    """
+    x_mean, y_mean = sample_mean(X), sample_mean(Y)
+    return np.sum((X - x_mean) * (Y - x_mean)) / ((X.shape[0] - 1) * unbiased_sample_variance(X) * unbiased_sample_variance(Y))

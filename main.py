@@ -1,9 +1,7 @@
-import numpy as np
-
 from data.read_data import get_data
 from train.train import train
 from GPU.utils import configure_gpu, save_generator
-from train.config.param_config import Params
+from train.config.parameterized.config import Params
 
 def main():
     params = Params()
