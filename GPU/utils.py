@@ -1,7 +1,9 @@
 import os
 import tensorflow as tf
 
-GPU_NUMBER = '1'
+GPU_NUMBER = '2'
+WORK_DIR = '/home/aprutyanova/dir'
+
 
 def configure_gpu():
     # Choose one of GPUs
@@ -12,3 +14,10 @@ def configure_gpu():
     gpus = tf.config.experimental.list_physical_devices('GPU')
     for gpu in gpus:
         tf.config.experimental.set_memory_growth(gpu, True)
+
+
+def save_generator(params, generator):
+    if params.GPU:
+        generator.save(os.path.join(WORK_DIR, 'generator1.h5'))
+    else:
+        generator.save('generator1.h5')

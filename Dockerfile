@@ -1,4 +1,3 @@
-# from tensorflow 2.1.0 gpu py3 jupyter
 FROM tensorflow/tensorflow:2.1.0-gpu-py3
 
 RUN pip install --upgrade pip
@@ -11,4 +10,4 @@ RUN pip3 install pandas==1.0.1 \
 
 COPY ./ /
 
-CMD python main.py
+CMD ["python", "main.py"]

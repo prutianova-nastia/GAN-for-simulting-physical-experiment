@@ -1,3 +1,5 @@
 venv
 saved_models
 notebooks
+plot
+metrics
