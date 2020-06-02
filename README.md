@@ -41,7 +41,7 @@
 # Технические ремарки
 Sourse of inspiration for coding:  https://github.com/keras-team/keras-contrib/blob/master/examples/improved_wgan.py
 Основной код для обучения моделей находится в папке train
-##To run locally:
+## To run locally:
 * source ./venv/bin/activate - асtivation command ([full tutorial on tf](https://www.tensorflow.org/install/pip?hl=ru))
 * python main.py (to start training)
 * python watch_results.py (to plot results)
