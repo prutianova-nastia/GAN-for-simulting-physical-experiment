@@ -18,8 +18,6 @@
 <img src="images/MPDbarrel.png" width="200"/>
 
 
-![drawing](images/MPDbarrel.png){ width=50% }
-
 ## Метрики качества
 Ноутбуки с подсчетами метрики можно нйти в папке notebooks
 1. https://github.com/prutianova-nastia/PhysGAN/blob/master/notebooks/Parametrized_model_results.ipynb
