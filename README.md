@@ -21,6 +21,7 @@
 ## Струкрура репозитория
 1. [Архитекруты лучших моделей](https://github.com/prutianova-nastia/PhysGAN/tree/master/train/models)
 1. [Рассчет метрик качества для модели без параметра](https://github.com/prutianova-nastia/PhysGAN/blob/master/notebooks/Unparameterized_model_results.ipynb)
+
    [Рассчет метрик качества для модели принимающей параметр](https://github.com/prutianova-nastia/PhysGAN/blob/master/notebooks/Parametrized_model_results.ipynb)
 1. [Oбученные модели в формате .h5](https://github.com/prutianova-nastia/PhysGAN/tree/master/saved_models)
 
@@ -44,6 +45,7 @@
 Лучше "выучить" это распределение модели может помочь логарфирование амплитуды, 
 однако это приводит к тому что после обратного взятия экспоненты распределения других метрик
 могут ухудшаться так например:
+
 Такое распределение(covariance pad):
 
 <img src="images/img-2.png" width="150"/>
@@ -52,7 +54,7 @@
 
 <img src="images/img-1.png" width="150"/>
 
-После обратного взятия экспоненты&
+После обратного взятия экспоненты.
 
 
 # Технические ремарки
