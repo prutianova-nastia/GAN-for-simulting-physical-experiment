@@ -1,5 +1,6 @@
 import tensorflow as tf
 
+
 def make_discriminator():
     return tf.keras.Sequential([
         tf.keras.layers.Conv2D(20, 3, input_shape=(8, 8, 1)),
