@@ -1,4 +1,5 @@
 import tensorflow as tf
+import numpy as np
 
 class Discriminator:
     def __init__(self, params):
@@ -29,11 +30,27 @@ class Discriminator:
     def wasserstein_loss(self, y_true, y_pred):
         return tf.math.reduce_mean(y_true * y_pred)
 
+
     def transform_input(self, image_batch, angles=None):
         if self.params.parametrized:
             assert angles is not None
+            return [image_batch, angles]
+        else:
+            return image_batch
+
+
+    def transform_input_1(self, image_batch, angles=None):
+        if self.params.parametrized:
+            assert angles is not None
+            angle_layer = np.array([np.full((8, 8, 1), angle) for angle in angles])
+            return tf.concat([image_batch, angle_layer], axis=3)
+        else:
+            return image_batch
+
+    def transform_input_2(self, image_batch, angles=None):
+        if self.params.parametrized:
+            assert angles is not None
             flatten = tf.reshape(image_batch, shape=(image_batch.shape[0], image_batch.shape[1] * image_batch.shape[2],))
-            # angles = tf.reshape(tf.cast(angles, tf.float32), shape=(angles.shape[0], 1))
             return tf.concat([flatten, angles], axis=1)
         else:
             return image_batch

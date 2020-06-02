@@ -1,7 +1,7 @@
 import os
 import tensorflow as tf
 
-GPU_NUMBER = '2'
+GPU_NUMBER = '3'
 WORK_DIR = '/home/aprutyanova/dir'
 
 
@@ -18,6 +18,14 @@ def configure_gpu():
 
 def save_generator(params, generator):
     if params.GPU:
-        generator.save(os.path.join(WORK_DIR, 'generator1.h5'))
+        generator.save(os.path.join(WORK_DIR, 'generator_3.h5'))
     else:
-        generator.save('generator1.h5')
+        generator.save('generator_3.h5')
+
+
+def save_discriminator(params, generator):
+    if params.GPU:
+        generator.save(os.path.join(WORK_DIR, 'discriminator_3.h5'))
+    else:
+        generator.save('discriminator_3.h5')
+

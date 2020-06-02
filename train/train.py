@@ -3,7 +3,7 @@ import tensorflow as tf
 from train.generator import Generator
 from train.discriminator import Discriminator
 from train.plot import plot_results
-from GPU.utils import save_generator
+from GPU.utils import save_generator, save_discriminator
 
 def random_shuffle(images, angles):
     if angles is None:
@@ -12,14 +12,23 @@ def random_shuffle(images, angles):
     shuffled_indices = tf.random.shuffle(indices)
     return tf.gather(images, shuffled_indices), tf.gather(angles, shuffled_indices)
 
+def choose_random_step(params):
+    rand = tf.random.uniform(shape=[], dtype='int32', minval=0,
+                             maxval=params.DISCRIMINATOR_STEPS + params.GENERATOR_STEPS)
+    if rand < params.DISCRIMINATOR_STEPS:
+        return 'discriminator'
+    else:
+        return 'generator'
+
 
 def train(params, images, angles=None):
     generator = Generator(params)
     discriminator = Discriminator(params)
 
+    angles = tf.reshape(tf.cast(angles, dtype=tf.float32), shape=(angles.shape[0], 1))
+
     for epoch in range(params.EPOCHS):
         images, angles = random_shuffle(images, angles)
-        angles = tf.reshape(tf.cast(angles, dtype=tf.float32), shape=(angles.shape[0], 1))
 
         print("Epoch: ", epoch)
         print("Number of batches: ", int(images.shape[0] // params.BATCH_SIZE))
@@ -39,13 +48,14 @@ def train(params, images, angles=None):
                     angle_batch = None
 
                 discriminator.train_on_batch(generator, image_batch, angle_batch)
-
             generator.train_on_batch(discriminator)
+
         params.decrease_learning_rate()
         save_generator(params, generator.model)
+        save_discriminator(params, discriminator.model)
 
+    if not params.GPU:
         imgs, _ = generator.generate_images(16)
-
         plot_results(imgs.numpy(), generator.losses, discriminator.losses)
 
     return generator.model, discriminator.model

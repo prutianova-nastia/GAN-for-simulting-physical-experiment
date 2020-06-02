@@ -1,3 +1,4 @@
+import tensorflow as tf
 import numpy as np
 import math
 
@@ -43,3 +44,7 @@ def sample_correlation_coefficient(X, Y):
     """
     x_mean, y_mean = sample_mean(X), sample_mean(Y)
     return np.sum((X - x_mean) * (Y - x_mean)) / ((X.shape[0] - 1) * unbiased_sample_variance(X) * unbiased_sample_variance(Y))
+
+def bootstrap(X):
+    rand = tf.random.uniform(shape=X.shape, dtype='int32', minval=0, maxval=X.shape[0])
+    return tf.gather(X, rand)

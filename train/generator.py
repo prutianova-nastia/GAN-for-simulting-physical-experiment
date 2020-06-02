@@ -23,7 +23,6 @@ class Generator:
                 angles = self.generate_angles(images_number)
             else:
                 assert angles.shape[0] == images_number
-            # angles = tf.reshape(tf.cast(angles, dtype=tf.float32), shape=(angles.shape[0], 1))
             model_input = tf.concat([angles, self.generate_random_noise((images_number, self.params.LATENT_DIM - 1))],
                                     axis=1)
         else:

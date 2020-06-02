@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
-import math
 
 from metrics.metrics import get_max_amplitude, get_mean_amplitude, get_center, get_covariance
 from metrics.statistic_utils import sample_mean, standard_error
@@ -11,6 +10,9 @@ def get_centers(imgs):
 
 def get_amps(imgs):
     return np.array(list(map(lambda img: get_max_amplitude(img), imgs)))
+
+def get_mean_amps(imgs):
+    return np.array(list(map(lambda img: get_mean_amplitude(img), imgs)))
 
 def get_covariances(imgs):
     return np.array(list(map(lambda img: get_covariance(img), imgs)))
@@ -43,6 +45,12 @@ def plot_results(real, generated):
 
     real_amps = get_amps(real)
     generated_amps = get_amps(generated)
+
+    distplot(real_amps, generated_amps)
+    show_mistake(real_amps, generated_amps, "Amplitude")
+
+    real_amps = get_mean_amps(real)
+    generated_amps = get_mean_amps(generated)
 
     distplot(real_amps, generated_amps)
     show_mistake(real_amps, generated_amps, "Amplitude")
