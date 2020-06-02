@@ -1,8 +1,8 @@
 # Построение генеративной модели для симуляции отклика трекера детектора MPD на ускорителе НИКА
 
 1. [Физический background](#physical-background)
-1. [Струкрура репозитория](#cтрукрура-репозитория)
-1. [Логарифмирование амплитуды](#curator)
+1. [Струкрура репозитория](#струкрура-репозитория)
+1. [Обучние](#про-обучение)
 1. [Технические ремарки](#технические-ремарки)
 
 
@@ -36,9 +36,32 @@
 <img src="images/4000-iterations-results.png" width="700"/>
 
 
-# GANS
-Sourse of inspiration:  https://github.com/keras-team/keras-contrib/blob/master/examples/improved_wgan.py
-###To run:
-* source ./venv/bin/activate - асtivation command
-* python run.py
-* python load_model.py (to plot resultes)
+
+
+# Технические ремарки
+Sourse of inspiration for coding:  https://github.com/keras-team/keras-contrib/blob/master/examples/improved_wgan.py
+Основной код для обучения моделей находится в папке train
+##To run locally:
+* source ./venv/bin/activate - асtivation command ([full tutorial on tf](https://www.tensorflow.org/install/pip?hl=ru))
+* python main.py (to start training)
+* python watch_results.py (to plot results)
+
+## To run on GPU 
+Connect GPU server:
+* ssh -p 2222 aprutyanova@92.242.58.230
+* ssh aprutyanova@172.21.210.34
+
+Docker commands:
+
+* delete docker image: docker rmi image-id
+* run bash image: docker run -it image-id bash
+* build docker: docker build -t <user>/<repo-name>[:<tag>] directory-path
+* to copy file from docker image:
+* docker run --name temp-container-name image-name /bin/true
+* docker cp temp-container-name:/path/to/file /local/path/to/file
+* docker rm temp-container-name
+* to authorize in docker: docker login docker.io 
+
+[to run on gpu](https://github.com/prutianova-nastia/PhysGAN/blob/master/GPU/docker_run.sh)
+
+don't forget to set parameter GPU in [config-file](https://github.com/prutianova-nastia/PhysGAN/tree/master/train/config) True
