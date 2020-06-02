@@ -29,9 +29,9 @@
 Модели обучаются порядка 3000-5000 итераций, в папке saved_models есть модель generator_500
 обучавшаяся 500 итераций и модель best_unparameterized с такой же архитектурой
 после 500 итераций графики распределений ковариации выглядели так: 
-<img src="images/500-iterations-results.png" width="200"/>
+<img src="images/500-iterations-results.png" width="500"/>
 а после 4000 итераций так:
-<img src="images/4000-iterations-results.png" width="200"/>
+<img src="images/4000-iterations-results.png" width="500"/>
 
 
 # GANS
