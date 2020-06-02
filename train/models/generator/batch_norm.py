@@ -8,19 +8,19 @@ def make_generator(LATENT_DIM):
 
         tf.keras.layers.Reshape((6, 6, 1)),
 
-        tf.keras.layers.Conv2DTranspose(70, 3),
+        tf.keras.layers.Conv2DTranspose(64, 3),
         tf.keras.layers.BatchNormalization(),
         tf.keras.layers.LeakyReLU(),
 
-        tf.keras.layers.Conv2DTranspose(35, 3),
+        tf.keras.layers.Conv2DTranspose(32, 3),
         tf.keras.layers.BatchNormalization(),
         tf.keras.layers.LeakyReLU(),
 
-        tf.keras.layers.Conv2DTranspose(35, 3, padding='same'),
+        tf.keras.layers.Conv2DTranspose(32, 3, padding='same'),
         tf.keras.layers.BatchNormalization(),
         tf.keras.layers.LeakyReLU(),
 
-        tf.keras.layers.Conv2DTranspose(20, 3),
+        tf.keras.layers.Conv2DTranspose(16, 3),
         tf.keras.layers.BatchNormalization(),
         tf.keras.layers.LeakyReLU(),
 
