@@ -1,9 +1,9 @@
 # Построение генеративной модели для симуляции отклика трекера детектора MPD на ускорителе НИКА
 
 1. [Физический background](#physical-background)
-1. [Метрики качества](#метрики-качества)
+1. [Струкрура репозитория](#cтрукрура-репозитория)
 1. [Логарифмирование амплитуды](#curator)
-1. [Технические ремарки]
+1. [Технические ремарки](#технические-ремарки)
 
 
 ## Physical Background
@@ -18,12 +18,15 @@
 <img src="images/MPDbarrel.png" width="200"/>
 
 
-## Метрики качества
-Ноутбуки с подсчетами метрики можно нйти в папке notebooks
-1. https://github.com/prutianova-nastia/PhysGAN/blob/master/notebooks/Parametrized_model_results.ipynb
+## Струкрура репозитория
+1. [Архитекруты лучших моделей](https://github.com/prutianova-nastia/PhysGAN/tree/master/train/models)
+1. [Рассчет метрик качества для модели без параметра](https://github.com/prutianova-nastia/PhysGAN/blob/master/notebooks/Unparameterized_model_results.ipynb)
+   [Рассчет метрик качества для модели принимающей параметр](https://github.com/prutianova-nastia/PhysGAN/blob/master/notebooks/Parametrized_model_results.ipynb)
+1. [Oбученные модели в формате .h5](https://github.com/prutianova-nastia/PhysGAN/tree/master/saved_models)
 
 
-## Про логарифмирование амплитуды
+## Про обучение
+Так как распределение 
 
 
 
