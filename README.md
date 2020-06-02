@@ -26,6 +26,7 @@
 
 
 ## Про обучение
+#### Про количество итераций 
 Модели обучаются порядка 3000-5000 итераций, в папке saved_models есть модель generator_1000
 обучавшаяся 1000 итераций и модель best_unparameterized с такой же архитектурой.
 
@@ -35,18 +36,24 @@
 А после 5000 итераций так:
 <img src="images/4000-iterations-results.png" width="700"/>
 
+#### Про логарифмирование амплитуды
+В исходных данных амплитуда распределена так что следнее значение амплитуды равно примерно 100 а максмимальное 40000
+то ест достаточно не равномерно, распределение выглядит так:
+<img src="images/amp.png" width="300"/>
+
 
 
 
 # Технические ремарки
 Sourse of inspiration for coding:  https://github.com/keras-team/keras-contrib/blob/master/examples/improved_wgan.py
 Основной код для обучения моделей находится в папке train
-## To run locally:
+
+## To run locally
 * source ./venv/bin/activate - асtivation command ([full tutorial on tf](https://www.tensorflow.org/install/pip?hl=ru))
 * python main.py (to start training)
 * python watch_results.py (to plot results)
 
-## To run on GPU 
+## To run on GPU
 Connect GPU server:
 * ssh -p 2222 aprutyanova@92.242.58.230
 * ssh aprutyanova@172.21.210.34
