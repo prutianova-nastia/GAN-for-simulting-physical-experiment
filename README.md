@@ -40,9 +40,10 @@
 В исходных данных амплитуда распределена так что следнее значение амплитуды равно примерно 100 а максмимальное 40000
 то есть достаточно не равномерно, распределение выглядит так:
 <img src="images/amp.png" width="300"/>
+
 Лучше "выучить" это распределение модели может помочь логарфирование амплитуды, 
 однако это приводит к тому что после обратного взятия экспоненты распределения других метрик
-могут ухудшаться так например  
+могут ухудшаться так например:
 Такое распределение(covariance pad):
 
 <img src="images/img-2.png" width="150"/>
@@ -51,7 +52,7 @@
 
 <img src="images/img-1.png" width="150"/>
 
-после обратного взятия экспоненты 
+После обратного взятия экспоненты&
 
 
 # Технические ремарки
@@ -79,6 +80,6 @@ Docker commands:
 * docker rm temp-container-name
 * to authorize in docker: docker login docker.io 
 
-[to run on gpu](https://github.com/prutianova-nastia/PhysGAN/blob/master/GPU/docker_run.sh)
+[To run on gpu](https://github.com/prutianova-nastia/PhysGAN/blob/master/GPU/docker_run.sh)
 
-don't forget to set parameter GPU in [config-file](https://github.com/prutianova-nastia/PhysGAN/tree/master/train/config) True
+Don't forget to set parameter GPU in [config-file](https://github.com/prutianova-nastia/PhysGAN/tree/master/train/config) True
